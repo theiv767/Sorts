@@ -7,8 +7,6 @@ public class AllSorts{
     }
 
 
-
-
     // QUICK SORT ------------------------------------------------------------
     private static void quickSort(int[] list, int init, int pivo){
         int iterator = init;
@@ -30,8 +28,6 @@ public class AllSorts{
     public static void quickSort(int[] list){
         quickSort(list, 0, list.length-1);
     }
-
-
 
 
     // MERGE SORT ------------------------------------------------------------
@@ -82,9 +78,6 @@ public class AllSorts{
         }
     }
 
-
-
-    
 
     // HEAP SORT ------------------------------------------------------------
     public static void heapSort(){
