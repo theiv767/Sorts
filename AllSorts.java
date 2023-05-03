@@ -84,10 +84,26 @@ public class AllSorts{
         //implementação ...
     }
 
-
+    
     // SHELL SORT ------------------------------------------------------------
-    public static void shellSort(){
-        //implementação ...
+    public static void shellSort(int[] list){
+        int h = 1;
+        while (h < list.length / 3) {
+            h = 3 * h + 1;
+        }
+
+        // aplicar o algoritmo ShellSort com a variável h
+        while (h >= 1) {
+            for (int i = h; i < list.length; i++) {
+                int temp = list[i];
+                int j;
+                for (j = i; j >= h && list[j - h] > temp; j -= h) {
+                    list[j] = list[j - h];
+                }
+                list[j] = temp;
+            }
+            h = h / 3;
+        }
     }
 
 }
