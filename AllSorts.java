@@ -8,6 +8,11 @@ public class AllSorts{
 
 
     // QUICK SORT ------------------------------------------------------------
+    public static void quickSort(int[] list){
+        if (list.length<2) return;
+        quickSort(list, 0, list.length-1);
+    }
+
     private static void quickSort(int[] list, int init, int pivo){
         int iterator = init;
         int pLess = init;
@@ -25,13 +30,11 @@ public class AllSorts{
         if(pLess+1<pivo) quickSort(list, pLess+1, pivo);
 
     }
-    public static void quickSort(int[] list){
-        quickSort(list, 0, list.length-1);
-    }
 
 
     // MERGE SORT ------------------------------------------------------------
     public static void mergeSort(int[] list){
+        if (list.length<2) return;
         mergeSort(list, 0, list.length-1);
     }
 
@@ -84,9 +87,11 @@ public class AllSorts{
         //implementação ...
     }
 
-    
+
     // SHELL SORT ------------------------------------------------------------
     public static void shellSort(int[] list){
+        if (list.length<2) return;
+
         int h = 1;
         while (h < list.length / 3) {
             h = 3 * h + 1;
