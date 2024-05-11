@@ -19,6 +19,12 @@ public class ParallelSorts {
         pool.shutdown();
     }
 
+    public static void quickSort(int[] list, int numThreads) {
+        ForkJoinPool pool = new ForkJoinPool(numThreads);
+        pool.invoke(new QuickSortTask(list, 0, list.length - 1));
+        pool.shutdown();
+    }
+
     private static class QuickSortTask extends RecursiveAction {
         private final int[] list;
         private final int init;
@@ -64,6 +70,12 @@ public class ParallelSorts {
 
     public static void mergeSort(int[] list) {
         ForkJoinPool pool = new ForkJoinPool();
+        pool.invoke(new MergeSortTask(list, 0, list.length - 1));
+        pool.shutdown();
+    }
+
+    public static void mergeSort(int[] list, int numThreads) {
+        ForkJoinPool pool = new ForkJoinPool(numThreads);
         pool.invoke(new MergeSortTask(list, 0, list.length - 1));
         pool.shutdown();
     }
@@ -130,6 +142,12 @@ public class ParallelSorts {
         pool.shutdown();
     }
 
+    public static void bubbleSort(int[] list, int numThreads) {
+        ForkJoinPool pool = new ForkJoinPool(numThreads);
+        pool.invoke(new BubbleSortTask(list, 0, list.length - 1));
+        pool.shutdown();
+    }
+
     private static class BubbleSortTask extends RecursiveAction {
         private final int[] list;
         private final int start;
@@ -157,6 +175,18 @@ public class ParallelSorts {
     }
 
     // SELECTION SORT ------------------------------------------------------------
+
+    public static void selectionSort(int[] list) {
+        ForkJoinPool pool = new ForkJoinPool();
+        pool.invoke(new ParallelSelectionSortTask(list, 0, list.length));
+        pool.shutdown();
+    }
+
+    public static void selectionSort(int[] list, int numThreads) {
+        ForkJoinPool pool = new ForkJoinPool(numThreads);
+        pool.invoke(new ParallelSelectionSortTask(list, 0, list.length));
+        pool.shutdown();
+    }
 
     private static class ParallelSelectionSortTask extends RecursiveAction {
         private final int[] arr;
@@ -189,12 +219,6 @@ public class ParallelSorts {
 
             leftTask.join();
         }
-    }
-
-    public static void selectionSort(int[] arr) {
-        ForkJoinPool pool = new ForkJoinPool();
-        pool.invoke(new ParallelSelectionSortTask(arr, 0, arr.length));
-        pool.shutdown();
     }
 
 
