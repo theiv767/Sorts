@@ -8,4 +8,4 @@
 ---
 
 ### OBSERVAÇÃO:
-- O arquivo main.java é o arquivo de geração de CSV dos testes
+- O arquivo Main.java é o arquivo de geração de CSV dos testes
