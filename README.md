@@ -8,4 +8,5 @@
 ---
 
 ### OBSERVAÇÃO:
-- O arquivo Main.java é o arquivo de geração de CSV dos testes
+- O arquivo TestaParalelo.java é o arquivo de geração de CSV dos Sorts paralelos
+- O arquivo TestaSerial.java é o arquivo de geração de CSV dos Sorts seriais
