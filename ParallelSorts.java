@@ -57,12 +57,6 @@ public class ParallelSorts {
             swap(list, pLess, end);
             return pLess;
         }
-
-        private void swap(int[] list, int i, int j) {
-            int temp = list[i];
-            list[i] = list[j];
-            list[j] = temp;
-        }
     }
 
 
