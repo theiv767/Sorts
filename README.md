@@ -1,6 +1,6 @@
 # Sorts
-### this repository shows the implementation of 4 different Sort algorithms:
+### Sorts usados para o trabalho de paralelismo:
   - quick sort
   - merge sort
-  - heap sort
-  - shell sort
+  - bubble sort
+  - selection sort
