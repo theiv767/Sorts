@@ -2,7 +2,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Random;
 
-public class Main {
+public class TestaParalelo {
     public static void main(String[] args) {
 
         int[] arraySizes = {500, 1000, 3000};
@@ -20,34 +20,34 @@ public class Main {
             selectionSortWriter.append("TamanhoArray,Threads,Tempo\n");
 
             for (int size : arraySizes) {
-                for (int i = 0; i < 3; i++) {
+                for (int i = 4; i < 8; i++) {
                     int[] list = generateRandomArray(size);
 
                     // quick sort -----------------------------------------------------
                     int[] listClone = list.clone();
                     long startTime = System.nanoTime();
-                    ParallelSorts.quickSort(listClone);
+                    ParallelSorts.quickSort(listClone, i);
                     long endTime = System.nanoTime();
                     quickSortWriter.append(size+ "," + i + "," + (endTime - startTime) / 1_000_000 + "\n");
 
                     // merge sort -----------------------------------------------------
                     listClone = list.clone();
                     startTime = System.nanoTime();
-                    ParallelSorts.mergeSort(listClone);
+                    ParallelSorts.mergeSort(listClone, i);
                     endTime = System.nanoTime();
                     mergeSortWriter.append(size+ "," + i + "," + (endTime - startTime) / 1_000_000 + "\n");
 
                     // bubble sort -----------------------------------------------------
                     listClone = list.clone();
                     startTime = System.nanoTime();
-                    ParallelSorts.bubbleSort(listClone);
+                    ParallelSorts.bubbleSort(listClone, i);
                     endTime = System.nanoTime();
                     bubbleSortWriter.append(size+ "," + i + "," + (endTime - startTime) / 1_000_000 + "\n");
 
                     // selection sort -----------------------------------------------------
                     listClone = list.clone();
                     startTime = System.nanoTime();
-                    ParallelSorts.selectionSort(listClone);
+                    ParallelSorts.selectionSort(listClone, i);
                     endTime = System.nanoTime();
                     selectionSortWriter.append(size+ "," + i + "," + (endTime - startTime) / 1_000_000 + "\n");
 
